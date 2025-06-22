@@ -12,10 +12,18 @@ load_dotenv()
 
 app = FastAPI()
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:3000',
+  'https://hack-on-sustainable-shopping-experi.vercel.app',
+  'https://hack-on-sustainable-git-9d5060-sachin-singhs-projects-a8578191.vercel.app',
+  'https://hack-on-sustainable-shopping-experience-bhr7csnmr.vercel.app'
+];
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv('FRONTEND_URL')],
+    allow_origins=allowedOrigins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
